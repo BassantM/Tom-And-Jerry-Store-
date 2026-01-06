@@ -1,91 +1,69 @@
 import 'package:flutter/material.dart';
-import 'package:svg_flutter/svg.dart';
+import 'package:tomstore/jerry_store/components/app_bar.dart';
+import 'package:tomstore/jerry_store/components/search.dart';
 
 class JerryStoreScreen extends StatelessWidget {
   const JerryStoreScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                children: [
-                  SvgPicture.asset(
-                    'assets/images/ic_jerry_profile.svg',
-                    width: 48,
-                    height: 48,
-                  ),
-                  SizedBox(width: 8),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Hi, Jerry 👋🏻',
-                        style: TextStyle(
-                          color: Color(0xFF1F1F1E),
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14,
-                        ),
-                      ),
-                      Text(
-                        'Which Tom do you want to buy?',
-                        style: TextStyle(
-                          color: Color(0xFFA5A6A4),
-                          fontWeight: FontWeight.w400,
-                          fontSize: 12,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const Spacer(),
-                  Stack(
-                    clipBehavior: Clip.none,
-                    children: [
-                      Container(
-                        width: 40,
-                        height: 40,
-                        padding: const EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Color(0xFF1F1F1E26),
-                            width: 1,
-                          ),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: SvgPicture.asset(
-                          'assets/images/ic_notification.svg',
-                          width: 24,
-                          height: 24,
-                        ),
-                      ),
+              appBar(),
+              const SizedBox(height: 16),
+              searchBar(context),
+              const SizedBox(height: 24),
 
-                      Positioned(
-                        top: -4,
-                        right: -4,
-                        child: Container(
-                          width: 18,
-                          height: 18,
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            color: Color(0xFF03578A),
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Text(
-                            '3',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 10,
-                              fontWeight: FontWeight.w500,
-                            ),
+              Stack(
+                children: [
+                  Container(
+                    width: size.width * 0.91,
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      gradient: const LinearGradient(
+                        colors: [Color(0xFF03446A), Color(0xFF0685D0)],
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                      ),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        Text(
+                          'Buy 1 Tom and get 2 for free',
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white,
                           ),
                         ),
-                      ),
-                    ],
+                        SizedBox(height: 4),
+                        Text(
+                          'Adopt Tom! (Free Fail-Free Guarantee)',
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Positioned(
+                    top: 0,
+                    right: 0,
+                    child: Image.asset('assets/images/im_tom_with_money.png'),
                   ),
                 ],
               ),
