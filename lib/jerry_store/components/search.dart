@@ -43,7 +43,7 @@ Widget searchBar(BuildContext context) {
                     decoration: BoxDecoration(
                       color: Color(0xFF03578A),
                       borderRadius: BorderRadius.circular(12),
-                      border: Border.all(width: 1, color: Color(0xFF0D06081F)),
+                      border: Border.all(width: 1, color: Color(0xff0d06081f)),
                     ),
                     child: SvgPicture.asset(
                       'assets/images/ic_filter.svg',

@@ -41,7 +41,7 @@ Widget appBar() {
             height: 40,
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              border: Border.all(color: Color(0xFF1F1F1E26), width: 1),
+              border: Border.all(color: Color(0xff1f1f1e26), width: 1),
               borderRadius: BorderRadius.circular(12),
             ),
             child: SvgPicture.asset(
